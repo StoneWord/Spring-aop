@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/context 
+						http://www.springframework.org/schema/context/spring-context-4.3.xsd
+						http://www.springframework.org/schema/aop 
+						http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+	
+	<!-- 配置自动扫描的包 -->
+	<context:component-scan base-package="com.ssm"/>
+	<!-- 开启基于@AspectJ切面的注解处理器 -->
+	<aop:aspectj-autoproxy/>
+	
+	<bean id="helloSpring" class="com.ssm.HelloSpring">
+		<property name="userName" value="贾伟"/>
+	</bean>
+	
+	<!-- 实例化业务类的Bean
+	<bean id="productService" class="com.ssm.service.impl.ProductServiceImpl"></bean>
+	实例化日志通知/增强处理类（切面）的bean
+	<bean id="allLogAdvice" class="com.ss.aop.AllLogAdvice"/>
+	配置aop
+	<aop:config>
+		配置切面日志
+		<aop:aspect id="logaop" ref="allLogAdvice">
+			定义切入点，切入点采用正则表达式，含义是对browse方法进行拦截
+			<aop:pointcut expression="execution(public void browse(String,String))" id="logpointcut"/>
+			
+			将日志通知类中的myBeforeAdvice方法指定为前置通知
+			<aop:before method="myBeforeAdvice" pointcut-ref="logpointcut"/>
+			
+			将日志通知类中的myAfterReturnAdvice方法指定为返回通知
+			<aop:after-returning method="myAfterReturnAdvice" pointcut-ref="logpointcut"/>
+			
+			将日志通知类中的myThrowingAdvice方法指定为异常通知
+			<aop:after-throwing method="myThrowingAdvice" pointcut-ref="logpointcut" throwing="e"/>
+			
+			将日志通知类中的myAfterReturnAdvice方法指定为环绕通知
+			<aop:around method="myAroundAdvice" pointcut-ref="logpointcut"/>
+			
+			
+		</aop:aspect>
+	</aop:config>  -->
+	
+	
+	
+</beans>
